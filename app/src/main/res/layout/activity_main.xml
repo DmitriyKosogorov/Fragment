@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable name="weather" type="com.example.fragment.Weather"/>
+</data>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Контейнер под фрагменты -->
+    <EditText
+        android:id="@+id/City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="City"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_fragm"
+        android:layout_below="@+id/City">
+
+    </FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/find"
+        android:text="find"
+        android:layout_below="@id/container_fragm"
+        android:onClick="onClick"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/error"
+        android:layout_below="@id/find"
+        android:text="@{weather.error}"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Short version"
+        android:id="@+id/short_ver"
+        android:layout_below="@id/error"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full version"
+        android:id="@+id/full_ver"
+        android:layout_below="@id/error"
+        android:layout_toEndOf="@id/short_ver"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+</layout>
